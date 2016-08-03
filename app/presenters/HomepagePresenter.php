@@ -2,6 +2,7 @@
 
 namespace App\Presenters;
 
+use App\Forms\IComponent;
 use Nette;
 use App\Model;
 

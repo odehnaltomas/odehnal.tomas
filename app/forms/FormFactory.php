@@ -15,7 +15,7 @@ class FormFactory
 	 */
 	public function create()
 	{
-		return new Form;
+		return new Form();
 	}
 
 }

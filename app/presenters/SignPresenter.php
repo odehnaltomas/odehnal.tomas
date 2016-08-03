@@ -8,34 +8,38 @@ use App\Forms;
 
 class SignPresenter extends BasePresenter
 {
-	/** @var Forms\SignInFormFactory @inject */
-	public $signInFactory;
+	/** @var Forms\ISignInForm @inject */
+	public $signInFormFactory;
 
-	/** @var Forms\SignUpFormFactory @inject */
-	public $signUpFactory;
+    /** @var  Forms\ISignUpForm @inject*/
+    public $signUpFormFactory;
 
 
-	/**
-	 * Sign-in form factory.
-	 * @return Nette\Application\UI\Form
-	 */
-	protected function createComponentSignInForm()
-	{
-		return $this->signInFactory->create(function () {
-			$this->redirect('Homepage:');
-		});
+
+    /**
+     * @return Forms\SignInForm
+     */
+	protected function createComponentSignInForm() {
+	    $control = $this->signInFormFactory->create();
+        $control->onSuccess[] = function() {
+            $this->redirect('this');
+        };
+
+        return $control;
 	}
 
 
 	/**
 	 * Sign-up form factory.
-	 * @return Nette\Application\UI\Form
+	 * @return Forms\SignUpFormFactory
 	 */
 	protected function createComponentSignUpForm()
 	{
-		return $this->signUpFactory->create(function () {
-			$this->redirect('Homepage:');
-		});
+		$control = $this->signUpFormFactory->create();
+        $control->onSuccess[] = function() {
+            $this->redirect('this');
+        };
+        return $control;
 	}
 
 
