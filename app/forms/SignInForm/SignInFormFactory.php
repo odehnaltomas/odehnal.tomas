@@ -39,9 +39,12 @@ class SignInForm extends Control
 
         $form->addText('username', 'Login:')
             ->setRequired();
+
         $form->addPassword('password', 'Heslo:')
             ->setRequired();
+
         $form->addCheckbox('remember', 'Zapamatovat');
+
         $form->addSubmit('send', 'Přihlásit');
 
         $form->onSuccess[] = [$this, 'processForm'];

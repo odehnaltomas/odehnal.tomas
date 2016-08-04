@@ -15,7 +15,9 @@ class FormFactory
 	 */
 	public function create()
 	{
-		return new Form();
+		$form = new Form;
+        $form->getElementPrototype()->novalidate = 'novalidate';
+        return $form;
 	}
 
 }

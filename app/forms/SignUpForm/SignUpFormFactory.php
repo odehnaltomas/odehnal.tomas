@@ -36,17 +36,23 @@ class SignUpFormFactory extends Control
     public function createComponentSignUpForm() {
         $form = $this->formFactory->create();
 
-        $form->addText('username', 'Login:')
+        $form->addText('username')
             ->setRequired();
+
         $form->addPassword('password', 'Heslo:')
             ->setRequired();
 
-        //TODO: Kontrola hesla (zadat heslo znovu + porovnání)
+        $form->addPassword('passwordAgain', 'Heslo znovu:')
+            ->setRequired()
+            ->addRule($form::EQUAL, 'Zadaná hesla se neshodují!', $form['password']);
 
         $form->addText('email', 'Email:')
             ->setRequired();
+
         $form->addText('first_name', 'Křestní jméno:');
+
         $form->addText('last_name', 'Příjmení:');
+
         $form->addSubmit('send', 'Registrovat');
 
         $form->onSuccess[] = [$this, 'processForm'];
