@@ -37,7 +37,8 @@ class SignInForm extends Control
     protected function createComponentSignInForm() {
         $form = $this->formFactory->create();
 
-        $form->addText('username', 'Login:')
+        $form->addText('username')
+            ->setAttribute('placeholder', 'Login')
             ->setRequired();
 
         $form->addPassword('password', 'Heslo:')

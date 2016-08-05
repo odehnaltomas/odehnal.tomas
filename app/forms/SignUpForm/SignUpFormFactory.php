@@ -46,7 +46,7 @@ class SignUpFormFactory extends Control
             ->setRequired()
             ->addRule($form::EQUAL, 'Zadaná hesla se neshodují!', $form['password']);
 
-        $form->addText('email', 'Email:')
+        $form->addEmail('email', 'Email:')
             ->setRequired();
 
         $form->addText('first_name', 'Křestní jméno:');

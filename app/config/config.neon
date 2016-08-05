@@ -7,6 +7,7 @@ parameters:
 
 application:
 	errorPresenter: Error
+	debugger: true
 	mapping:
 		*: App\*Module\Presenters\*Presenter
 
