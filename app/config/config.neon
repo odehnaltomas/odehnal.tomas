@@ -4,9 +4,6 @@
 #
 parameters:
 
-latte:
-    macros:
-        - Nextras\Forms\Bridges\Latte\Macros\BS3InputMacros
 
 application:
 	errorPresenter: Error
