@@ -38,23 +38,23 @@ class SignUpFormFactory extends Control
         $form = $this->formFactory->create();
 
         $form->addText('username')
+            ->setAttribute('placeholder', 'Login')
             ->setRequired();
 
         $form->setRenderer(new BS3SignFormRenderer);
 
-        $form->addPassword('password', 'Heslo:')
+        $form->addPassword('password')
+            ->setAttribute('placeholder', 'Heslo')
             ->setRequired();
 
-        $form->addPassword('passwordAgain', 'Heslo znovu:')
+        $form->addPassword('passwordAgain')
+            ->setAttribute('placeholder', 'Heslo znovu')
             ->setRequired()
             ->addRule($form::EQUAL, 'Zadaná hesla se neshodují!', $form['password']);
 
         $form->addEmail('email', 'Email:')
+            ->setAttribute('placeholder', 'Email')
             ->setRequired();
-
-        $form->addText('first_name', 'Křestní jméno:');
-
-        $form->addText('last_name', 'Příjmení:');
 
         $form->addSubmit('send', 'Registrovat');
 
