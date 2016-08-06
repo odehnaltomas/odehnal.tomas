@@ -8,6 +8,7 @@
  */
 namespace App\Forms;
 
+use App\Forms\Renderers\BS3SignFormRenderer;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
 use Nette\Security\AuthenticationException;
@@ -37,11 +38,14 @@ class SignInForm extends Control
     protected function createComponentSignInForm() {
         $form = $this->formFactory->create();
 
-        $form->addText('username')
+        $form->setRenderer(new BS3SignFormRenderer());
+
+        $form->addText('username', 'Login:')
             ->setAttribute('placeholder', 'Login')
             ->setRequired();
 
         $form->addPassword('password', 'Heslo:')
+            ->setAttribute('placeholder', 'Heslo')
             ->setRequired();
 
         $form->addCheckbox('remember', 'Zapamatovat');

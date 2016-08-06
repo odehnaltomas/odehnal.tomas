@@ -8,6 +8,7 @@
  */
 namespace App\Forms;
 
+use App\Forms\Renderers\BS3SignFormRenderer;
 use App\Model\DuplicateNameException;
 use App\Model\UserManager;
 use Nette\Application\UI\Control;
@@ -38,6 +39,8 @@ class SignUpFormFactory extends Control
 
         $form->addText('username')
             ->setRequired();
+
+        $form->setRenderer(new BS3SignFormRenderer);
 
         $form->addPassword('password', 'Heslo:')
             ->setRequired();

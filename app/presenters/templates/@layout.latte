@@ -16,9 +16,27 @@
 </head>
 
 <body>
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">NAME</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Page 1</a></li>
+				<li><a href="#">Page 2</a></li>
+				<li><a href="#">Page 3</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a n:href="Sign:up"><span class="glyphicon glyphicon-user"></span> Registrovat</a></li>
+				<li><a n:href="Sign:in"><span class="glyphicon glyphicon-log-in"></span> Přihlásit</a></li>
+			</ul>
+		</div>
+	</nav>
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
-
-	{include content}
+	<div class="container">
+		{include content}
+	</div>
 
 	{block scripts}
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
