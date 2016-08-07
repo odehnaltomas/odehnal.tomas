@@ -2,8 +2,8 @@
 
 namespace App\Presenters;
 
+use Kdyby\Translation\Translator;
 use Nette;
-use App\Model;
 
 
 /**
@@ -11,5 +11,9 @@ use App\Model;
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
+    /** @persistent */
+    public $locale;
 
+    /** @var Translator @inject */
+    public $translator;
 }

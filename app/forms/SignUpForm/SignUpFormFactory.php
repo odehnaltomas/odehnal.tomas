@@ -70,6 +70,7 @@ class SignUpFormFactory extends Control
 
     public function processForm(Form $form, $values) {
         //TODO: Odzkoušet posílání emailu
+
         $token = Random::generate(32);
 
         $template = $this->createTemplate();
