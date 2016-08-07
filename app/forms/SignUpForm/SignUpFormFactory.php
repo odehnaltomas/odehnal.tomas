@@ -13,6 +13,10 @@ use App\Model\DuplicateNameException;
 use App\Model\UserManager;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
+use Nette\Mail\Message;
+use Nette\Mail\SendException;
+use Nette\Mail\SendmailMailer;
+use Nette\Utils\Random;
 
 
 class SignUpFormFactory extends Control
@@ -64,11 +68,29 @@ class SignUpFormFactory extends Control
     }
 
 
-    public function processForm(Form $form, array $values) {
+    public function processForm(Form $form, $values) {
+        //TODO: Odzkoušet posílání emailu
+        $token = Random::generate(32);
+
+        $template = $this->createTemplate();
+        $template->setFile(__DIR__ . '/email.latte');
+        $template->code = $token;
+
+        $mail = new Message();
+        $mail->setFrom('me@example.com')
+            ->addTo('tipek136@gmail.com')
+            ->setSubject('Potvrzení registrace')
+            ->setHtmlBody($template);
+
+        $mailer = new SendmailMailer;
         try {
-            $this->userManager->addUser($values);
+            $mailer->send($mail);
+
+            $this->userManager->add($values->username, $values->password, $values->email, $token);
             $this->onSuccess();
         } catch (DuplicateNameException $e) {
+            $form->addError($e->getMessage());
+        } catch (SendException $e) {
             $form->addError($e->getMessage());
         }
     }

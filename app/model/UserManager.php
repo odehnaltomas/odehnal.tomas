@@ -21,7 +21,8 @@ class UserManager implements Nette\Security\IAuthenticator
 		COLUMN_EMAIL = 'email',
 		COLUMN_ROLE = 'role',
         COLUMN_FIRST_NAME = 'first_name',
-        COLUMN_LAST_NAME = 'last_name';
+        COLUMN_LAST_NAME = 'last_name',
+        COLUMN_TOKEN = 'token';
 
 
 	/** @var Nette\Database\Context */
@@ -63,24 +64,24 @@ class UserManager implements Nette\Security\IAuthenticator
 	}
 
 
-	/**
-	 * Adds new user.
-	 * @param  string
-	 * @param  string
-	 * @param  string
-	 * @return void
-	 * @throws DuplicateNameException
-	 */
-	public function addUser($values)
+    /**
+     * @param $username
+     * @param $password
+     * @param $email
+     * @param $token
+     * @throws DuplicateNameException
+     */
+	public function add($username, $password, $email, $token)
 	{
 		try {
 			$this->database->table(self::TABLE_NAME)->insert([
-				self::COLUMN_NAME => $values['username'],
-				self::COLUMN_PASSWORD_HASH => Passwords::hash($values['password']),
-				self::COLUMN_EMAIL => $values['email']
+				self::COLUMN_NAME => $username,
+				self::COLUMN_PASSWORD_HASH => Passwords::hash($password),
+				self::COLUMN_EMAIL => $email,
+                self::COLUMN_TOKEN => $token
 			]);
 		} catch (Nette\Database\UniqueConstraintViolationException $e) {
-			throw new DuplicateNameException;
+			throw new DuplicateNameException('toto jmeno již existuje!');
 		}
 	}
 
