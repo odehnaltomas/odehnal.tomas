@@ -40,11 +40,11 @@ class SignInForm extends Control
 
         $form->setRenderer(new BS3SignFormRenderer());
 
-        $form->addText('username', 'Login:')
+        $form->addText('username')
             ->setAttribute('placeholder', 'Login')
             ->setRequired();
 
-        $form->addPassword('password', 'Heslo:')
+        $form->addPassword('password')
             ->setAttribute('placeholder', 'Heslo')
             ->setRequired();
 
