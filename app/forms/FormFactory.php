@@ -14,10 +14,12 @@ class FormFactory
     /** @var Translator  */
     protected $translator;
 
+
     public function __construct(Translator $translator)
     {
         $this->translator = $translator;
     }
+
 
     /**
 	 * @return Form

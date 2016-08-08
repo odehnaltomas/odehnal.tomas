@@ -41,16 +41,16 @@ class SignInForm extends Control
         $form->setRenderer(new BS3SignFormRenderer());
 
         $form->addText('username')
-            ->setAttribute('placeholder', 'Login')
+            ->setAttribute('placeholder', 'forms.placeholder.username')
             ->setRequired();
 
         $form->addPassword('password')
-            ->setAttribute('placeholder', 'Heslo')
+            ->setAttribute('placeholder', 'forms.placeholder.password')
             ->setRequired();
 
-        $form->addCheckbox('remember', 'Zapamatovat');
+        $form->addCheckbox('remember', 'forms.button.rememberMe');
 
-        $form->addSubmit('send', 'Přihlásit');
+        $form->addSubmit('send', 'forms.button.signIn');
 
         $form->onSuccess[] = [$this, 'processForm'];
 

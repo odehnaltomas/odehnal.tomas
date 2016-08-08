@@ -14,6 +14,27 @@ application:
 extensions:
     translation: Kdyby\Translation\DI\TranslationExtension
 
+forms:
+    messages:
+        EQUAL: 'forms.messages.EQUAL'
+        NOT_EQUAL: 'forms.messages.NOT_EQUAL'
+        FILLED: 'forms.messages.FILLED'
+        BLANK: 'forms.messages.BLANK'
+        MIN_LENGTH: 'forms.messages.MIN_LENGTH'
+        MAX_LENGTH: 'forms.messages.MAX_LENGTH'
+        LENGTH: 'forms.messages.LENGTH'
+        EMAIL: 'forms.messages.EMAIL'
+        URL: 'forms.messages.URL'
+        INTEGER: 'forms.messages.INTEGER'
+        FLOAT: 'forms.messages.FLOAT'
+        MIN: 'forms.messages.MIN'
+        MAX: 'forms.messages.MAX'
+        RANGE: 'forms.messages.RANGE'
+        MAX_FILE_SIZE: 'forms.messages.MAX_FILE_SIZE'
+        MAX_POST_SIZE: 'forms.messages.MAX_POST_SIZE'
+        MIME_TYPE: 'forms.messages.MIME_TYPE'
+        IMAGE: 'forms.messages.IMAGE'
+
 session:
 	expiration: 14 days
 

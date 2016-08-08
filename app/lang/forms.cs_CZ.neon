@@ -1,0 +1,33 @@
+placeholder:
+    username: "Uživatelské jméno"
+    password: "Heslo"
+    passwordAgain: "Heslo znovu"
+    email: "Email"
+
+button:
+    signUp: "Registrovat"
+    signIn: "Přihlásit"
+    rememberMe: "Zapamatovat"
+
+
+messages:
+    EQUAL: 'Zadej prosím %s.'
+    NOT_EQUAL: 'Hodnota by neměla být %s.'
+    FILLED: 'Vyplňte prosím toto políčko.'
+    BLANK: 'Toto políčko by mělo být prázdné'
+    MIN_LENGTH: 'Prosím zadejte alespoň %d znaků.'
+    MAX_LENGTH: 'Prosím nezadávejte více než %d znaků.'
+    LENGTH: 'Prosím zadejte hodnotu mezi %d a %d znaků.'
+    EMAIL: 'Prosím zadejte validní emailovou adresu.'
+    URL: 'Prosím zadejte validní URL.'
+    INTEGER: 'Prosím zadejte celé číslo.'
+    FLOAT: 'Prosím zadejte reálné číslo.'
+    MIN: 'Prosím zadejte hodnotu větší nebo rovno %d.'
+    MAX: 'Prosím zadejte hodnotu menší nebo rovno %d.'
+    RANGE: 'Prosím zadejte hodnotu mezi %d a %d.'
+    MAX_FILE_SIZE: 'Velikost nahraného souboru může být do %d bytů.'
+    MAX_POST_SIZE: 'Nahraná data překročila %d bytů.'
+    MIME_TYPE: 'Nahraný soubor nemá požadovaný formát.'
+    IMAGE: 'Nahraný soubor musí být obrázek ve formátu JPEG, GIF nebo PNG.'
+
+    passwordsNoEqual: "Zadaná hesla se neshodují."

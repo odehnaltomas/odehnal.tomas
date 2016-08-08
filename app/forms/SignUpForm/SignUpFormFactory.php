@@ -41,26 +41,26 @@ class SignUpFormFactory extends Control
     public function createComponentSignUpForm() {
         $form = $this->formFactory->create();
 
-        $form->addText('username')
-            ->setAttribute('placeholder', 'Login')
-            ->setRequired();
-
         $form->setRenderer(new BS3SignFormRenderer);
 
+        $form->addText('username')
+            ->setAttribute('placeholder', 'forms.placeholder.username')
+            ->setRequired();
+
         $form->addPassword('password')
-            ->setAttribute('placeholder', 'Heslo')
+            ->setAttribute('placeholder', 'forms.placeholder.password')
             ->setRequired();
 
         $form->addPassword('passwordAgain')
-            ->setAttribute('placeholder', 'Heslo znovu')
+            ->setAttribute('placeholder', 'forms.placeholder.passwordAgain')
             ->setRequired()
-            ->addRule($form::EQUAL, 'Zadaná hesla se neshodují!', $form['password']);
+            ->addRule($form::EQUAL, 'forms.messages.passwordsNoEqual', $form['password']);
 
-        $form->addEmail('email', 'Email:')
-            ->setAttribute('placeholder', 'Email')
+        $form->addEmail('email')
+            ->setAttribute('placeholder', 'forms.placeholder.email')
             ->setRequired();
 
-        $form->addSubmit('send', 'Registrovat');
+        $form->addSubmit('send', 'forms.button.signUp');
 
         $form->onSuccess[] = [$this, 'processForm'];
 
