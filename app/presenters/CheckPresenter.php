@@ -24,6 +24,10 @@ class CheckPresenter extends BasePresenter
     }
 
 
+    /**
+     * Ověřuje se korektnost tokenu a dokončuje se registrace.
+     * @param string $code Token, který se ověřuje.
+     */
     public function actionDefault($code) {
         $this->template->code = $code;
         //TODO: Dodělat kontrolu emailu

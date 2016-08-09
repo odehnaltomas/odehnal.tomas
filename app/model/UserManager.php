@@ -87,6 +87,7 @@ class UserManager implements Nette\Security\IAuthenticator
 
 
     /**
+     * Pokud je v DB nalezen zadaný token, je v záznamu (uživateli) nahrazen NULL.
      * @param $token
      * @return int
      */

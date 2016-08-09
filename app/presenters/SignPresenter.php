@@ -40,6 +40,7 @@ class SignPresenter extends BasePresenter
             $this->redirect('this');
         };
 
+        //Slouží pro otestování registrace a ověření tokenu
         $control->onSuccessTest[] = function($token) {
             $this->redirect('emailTest', array('code' => $token));
         };

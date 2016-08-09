@@ -64,15 +64,14 @@ class SignUpFormFactory extends Control
 
         $form->addSubmit('send', 'forms.button.signUp');
 
-        $form->onSuccess[] = [$this, 'processFormTest'];
+        $form->onSuccess[] = [$this, 'processForm']; //TODO: Zde přepsat metdu pro změnu způsobu dokončení registrace.
 
         return $form;
     }
 
 
     public function processForm(Form $form, $values) {
-        //TODO: Odzkoušet posílání emailu
-
+        //TODO: Při nahrání na web odzkoušet posílání mailu.
         $token = Random::generate(32);
 
         $template = $this->createTemplate();
@@ -98,6 +97,12 @@ class SignUpFormFactory extends Control
         }
     }
 
+
+    /**
+     * Slouží pro otestování ověření tokenu a dokonční registrace
+     * @param Form $form
+     * @param $values
+     */
     public function processFormTest(Form $form, $values) {
         $token = Random::generate(32);
 
