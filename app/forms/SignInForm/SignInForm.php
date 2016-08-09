@@ -78,7 +78,7 @@ class SignInForm extends Control
 }
 
 
-interface ISignInForm
+interface ISignInFormFactory
 {
     /** @return SignInForm */
     public function create();

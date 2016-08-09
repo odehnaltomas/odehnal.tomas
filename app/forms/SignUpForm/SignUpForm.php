@@ -19,7 +19,7 @@ use Nette\Mail\SendmailMailer;
 use Nette\Utils\Random;
 
 
-class SignUpFormFactory extends Control
+class SignUpForm extends Control
 {
     public $onSuccess;
 
@@ -105,8 +105,8 @@ class SignUpFormFactory extends Control
 }
 
 
-interface ISignUpForm {
+interface ISignUpFormFactory {
 
-    /** @return SignUpFormFactory */
+    /** @return SignUpForm */
     public function create();
 }

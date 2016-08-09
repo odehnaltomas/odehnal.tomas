@@ -8,10 +8,10 @@ use App\Forms;
 
 class SignPresenter extends BasePresenter
 {
-	/** @var Forms\ISignInForm @inject */
+	/** @var Forms\ISignInFormFactory @inject */
 	public $signInFormFactory;
 
-    /** @var  Forms\ISignUpForm @inject*/
+    /** @var  Forms\ISignUpFormFactory @inject*/
     public $signUpFormFactory;
 
 
@@ -31,7 +31,7 @@ class SignPresenter extends BasePresenter
 
 	/**
 	 * Sign-up form factory.
-	 * @return Forms\SignUpFormFactory
+	 * @return Forms\SignUpForm
 	 */
 	protected function createComponentSignUpForm()
 	{
