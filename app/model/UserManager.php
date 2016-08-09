@@ -85,6 +85,18 @@ class UserManager implements Nette\Security\IAuthenticator
 		}
 	}
 
+
+    /**
+     * @param $token
+     * @return int
+     */
+	public function updateRegisterUser($token) {
+	    return $this->database->table(self::TABLE_NAME)->where(self::COLUMN_TOKEN, $token)->update(array(
+	        self::COLUMN_TOKEN => NULL
+        ));
+    }
+
+
 }
 
 

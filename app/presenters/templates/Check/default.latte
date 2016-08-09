@@ -1,0 +1,9 @@
+{block content}
+
+{ifset $alert}
+    <div n:class="'alert alert-' . $alert['type']">
+        <strong>{$alert['message']}</strong>
+    </div>
+{/ifset}
+
+{/block}

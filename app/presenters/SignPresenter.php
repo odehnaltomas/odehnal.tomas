@@ -39,8 +39,16 @@ class SignPresenter extends BasePresenter
         $control->onSuccess[] = function() {
             $this->redirect('this');
         };
+
+        $control->onSuccessTest[] = function($token) {
+            $this->redirect('emailTest', array('code' => $token));
+        };
         return $control;
 	}
+
+	public function renderEmailTest($code) {
+	    $this->template->code = $code;
+    }
 
 
 	public function actionOut()

@@ -23,6 +23,8 @@ class SignUpFormFactory extends Control
 {
     public $onSuccess;
 
+    public $onSuccessTest;
+
     /** @var FormFactory  */
     private $formFactory;
 
@@ -62,7 +64,7 @@ class SignUpFormFactory extends Control
 
         $form->addSubmit('send', 'forms.button.signUp');
 
-        $form->onSuccess[] = [$this, 'processForm'];
+        $form->onSuccess[] = [$this, 'processFormTest'];
 
         return $form;
     }
@@ -92,6 +94,17 @@ class SignUpFormFactory extends Control
         } catch (DuplicateNameException $e) {
             $form->addError($e->getMessage());
         } catch (SendException $e) {
+            $form->addError($e->getMessage());
+        }
+    }
+
+    public function processFormTest(Form $form, $values) {
+        $token = Random::generate(32);
+
+        try {
+            $this->userManager->add($values->username, $values->password, $values->email, $token);
+            $this->onSuccessTest($token);
+        } catch (DuplicateNameException $e) {
             $form->addError($e->getMessage());
         }
     }
